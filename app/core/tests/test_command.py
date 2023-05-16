@@ -1,6 +1,5 @@
-"""
-Test custom django management commands.
-"""
+"""Test custom django management commands."""
+
 from unittest.mock import patch
 from psycopg2 import OperationalError as Psycopg2Error
 from django.core.management import call_command
@@ -23,7 +22,4 @@ class CommandTests(SimpleTestCase):
       [OperationalError] *3 + [True]
     call_command('wait_for_db') 
     self.assertEqual(patched_check.call_count, 6)
-    patched_check.assert_called_with(databases=['default'])
-    
-    
-    
+    patched_check.assert_called_with(databases=['default']) 
